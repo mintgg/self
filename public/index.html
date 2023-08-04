@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/qs@6.10.2/dist/qs.js"></script>
+</head>
+
+<body>
+    <script>
+        async function urlParam() {
+            const res = await axios.get('/person/1');
+            console.log(res);
+        }
+        async function query() {
+            const res = await axios.get('/person/find?name=abc&age=24');
+            console.log(res);
+        }
+        async function formUrlEncoded() {
+            const res = await axios.post('/person', {
+                name: '光',
+                age: 20
+            }, {
+                headers: { 'content-type': 'application/json' }
+            });
+            console.log(res);
+        }
+        urlParam();
+        query();
+        formUrlEncoded();
+    </script>
+</body>
